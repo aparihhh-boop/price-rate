@@ -85,7 +85,7 @@
     if (/คูปอง|coupon|voucher/.test(unit)) return "coupon";
     if (/\bvp\b|valorant\s*points?/.test(unit)) return "vp";
     if (/robux|โรบัก/.test(unit)) return "robux";
-    return unit;
+    return "";
   }
 
   function parsePackageSearch(query) {
@@ -113,27 +113,38 @@
       (!category || (skin.type || "package") === category) &&
       (!parsed.gameId || skin.gameId === parsed.gameId)
     );
-    let products = candidates;
+    let products = query ? candidates : [];
     let recommendationText = "";
     const exactIds = new Set();
-    const recommendedIds = new Set();
 
     if (parsed.quantity) {
-      if (parsed.unit) candidates = candidates.filter((skin) => normalizeUnit(skin.unit) === parsed.unit);
-      candidates = candidates.filter((skin) => Number.isFinite(Number(skin.quantity)) && Number(skin.quantity) > 0);
-      const exact = candidates.filter((skin) => Number(skin.quantity) === parsed.quantity);
-      if (exact.length) {
-        products = exact;
-        exact.forEach((skin) => exactIds.add(skin.id));
-        recommendationText = `พบรายการ ${parsed.quantity.toLocaleString("th-TH")} ${escapeHtml(parsed.unitLabel || "หน่วย")} ที่ตรงกับที่ค้นหา`;
+      const words = normalizeSearch(query).split(/\s+/).filter(Boolean);
+      const skinMatches = candidates.filter((skin) => {
+        if (skin.type !== "skin") return false;
+        const game = state.games.find((item) => item.id === skin.gameId);
+        const searchable = normalizeSearch([
+          game?.name, skin.name, skin.description, skin.quantity, skin.unit, skin.promoLabel,
+        ].join(" "));
+        return words.every((word) => searchable.includes(word));
+      });
+      let packageCandidates = candidates.filter((skin) => skin.type !== "skin");
+      if (parsed.unit) packageCandidates = packageCandidates.filter((skin) => normalizeUnit(skin.unit) === parsed.unit);
+      packageCandidates = packageCandidates.filter((skin) =>
+        Number.isFinite(Number(skin.quantity)) && Number(skin.quantity) > 0
+      );
+      const matchingPackages = packageCandidates.filter((skin) =>
+        String(skin.quantity).includes(String(parsed.quantity))
+      );
+      if (matchingPackages.length) {
+        products = [...skinMatches, ...matchingPackages];
+        matchingPackages.forEach((skin) => exactIds.add(skin.id));
+        recommendationText = `พบแพ็กที่มีเลข ${parsed.quantity.toLocaleString("th-TH")} ตามที่ค้นหา`;
+      } else if (skinMatches.length) {
+        products = skinMatches;
+        recommendationText = `พบ ${skinMatches.length} Skin ที่ตรงกับคำค้นหา`;
       } else {
-        products = [...candidates]
-          .sort((left, right) => Math.abs(left.quantity - parsed.quantity) - Math.abs(right.quantity - parsed.quantity) || effectivePrice(left) - effectivePrice(right))
-          .slice(0, 3);
-        products.forEach((skin) => recommendedIds.add(skin.id));
-        recommendationText = products.length
-          ? `ยังไม่มีแพ็ก ${parsed.quantity.toLocaleString("th-TH")} ${escapeHtml(parsed.unitLabel || "หน่วย")} ตรงจำนวน — แนะนำแพ็กใกล้เคียง`
-          : `ยังไม่พบรายการ${parsed.unitLabel ? `หน่วย ${escapeHtml(parsed.unitLabel)}` : ""} ลองเลือกเกมอื่นหรือสอบถามร้านได้เลย`;
+        products = [];
+        recommendationText = `ไม่พบแพ็กที่มีเลข ${parsed.quantity.toLocaleString("th-TH")} ในจำนวน`;
       }
     } else if (query) {
       const words = normalizeSearch(query).split(/\s+/).filter(Boolean);
@@ -154,7 +165,9 @@
     $("#product-count").textContent = `${products.length} รายการ`;
     $("#search-recommendation").innerHTML = `<span class="recommendation-sparkle">${parsed.quantity && exactIds.size ? "♡" : parsed.quantity ? "✦" : "⌕"}</span><span>${recommendationText}</span>`;
     if (!products.length) {
-      $("#product-grid").innerHTML = '<div class="empty-state">ยังไม่มีรายการที่ตรงกับตัวกรองนี้</div>';
+      $("#product-grid").innerHTML = query
+        ? '<div class="empty-state">ยังไม่มีรายการที่ตรงกับคำค้นหานี้ ลองค้นหาด้วยชื่อเกม จำนวน ชื่อแพ็ก หรือ Skin</div>'
+        : '<div class="empty-state">พิมพ์ชื่อเกม จำนวนแพ็ก หรือชื่อ Skin ในช่องค้นหา เพื่อดูราคา</div>';
       return;
     }
     $("#product-grid").innerHTML = products.map((skin) => {
@@ -162,10 +175,8 @@
       const isSkin = skin.type === "skin";
       const isOnSale = Number(skin.promoPrice) > 0 && Number(skin.promoPrice) < Number(skin.price);
       const packageTag = exactIds.has(skin.id)
-        ? '<span class="match-badge exact-match">ตรงจำนวนที่หา ✓</span>'
-        : recommendedIds.has(skin.id)
-          ? '<span class="match-badge recommended-match">แพ็กแนะนำ ✦</span>'
-          : "";
+        ? '<span class="match-badge exact-match">เลขตรงคำค้นหา ✓</span>'
+        : "";
       return `<article class="product-card">
         <div class="product-info"><small>${escapeHtml(game?.name || "เกม")} · ${isSkin ? "Skin" : "แพ็ก"}</small><h3>${escapeHtml(skin.name)}</h3>${!isSkin && skin.quantity ? `<div class="package-quantity">${Number(skin.quantity).toLocaleString("th-TH")} ${escapeHtml(skin.unit || "")}</div>` : ""}<p>${escapeHtml(skin.description || "")}</p>${isOnSale ? `<div class="sale-price"><strong>฿${money(skin.promoPrice)}</strong><del>฿${money(skin.price)}</del><span>ประหยัด ฿${money(skin.price - skin.promoPrice)}</span></div>${skin.promoLabel ? `<span class="sale-caption">${escapeHtml(skin.promoLabel)}</span>` : ""}` : `<div class="product-price"><strong>฿${money(skin.price)}</strong></div>`}${packageTag}</div>
       </article>`;

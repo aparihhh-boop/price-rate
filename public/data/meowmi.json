@@ -31,6 +31,156 @@
       "imageUrl": "https://share.google/5Y2UBxOHCQhVf6Xdf",
       "active": true,
       "type": "package"
+    },
+    {
+      "id": "61e21f28-64aa-4421-a3bb-fc496d308530",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "24  cp",
+      "quantity": 24,
+      "unit": "cp",
+      "description": "",
+      "price": 20,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "9eaac87e-dd6e-4502-976c-b310bf9add0b",
+      "gameId": "game-rov",
+      "type": "skin",
+      "name": "echo 590 cp",
+      "quantity": null,
+      "unit": "",
+      "description": "เฉพาะสกิน",
+      "price": 455,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "6a99e3df-a769-42f2-8a32-af23f1946796",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "35 cp",
+      "quantity": 35,
+      "unit": "cp",
+      "description": "",
+      "price": 29,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "823ee70b-6f7d-437c-b858-277a918a2feb",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "48 cp",
+      "quantity": 48,
+      "unit": "cp",
+      "description": "",
+      "price": 39,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "6e63cd64-a6b1-4e3f-a14a-d41ecedad80e",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "60 cp",
+      "quantity": 60,
+      "unit": "cp",
+      "description": "",
+      "price": 50,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "8022a522-9ccf-4792-8cd5-fbac86287ab0",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "71 cp",
+      "quantity": 71,
+      "unit": "cp",
+      "description": "",
+      "price": 59,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "55c019d0-73f5-4fcd-b410-1587fdbd7c7e",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "84 cp",
+      "quantity": 84,
+      "unit": "cp",
+      "description": "",
+      "price": 69,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "a5ca975e-d958-4f2f-8a25-067a9f370304",
+      "gameId": "game-rov",
+      "type": "package",
+      "name": "110 cp",
+      "quantity": 110,
+      "unit": "cp",
+      "description": "",
+      "price": 89,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "b0db0795-c741-4cea-af31-661170bc04a5",
+      "gameId": "game-rov",
+      "type": "skin",
+      "name": "echo 691 cp",
+      "quantity": null,
+      "unit": "",
+      "description": "สกิน + ของตกแต่ง ( ปุ่ม ท่าเต้น อิโมจิ )",
+      "price": 533,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
+    },
+    {
+      "id": "6592d886-6fd9-4066-9173-f418e94c123e",
+      "gameId": "game-rov",
+      "type": "skin",
+      "name": "valor pass 405 cp",
+      "quantity": null,
+      "unit": "",
+      "description": "ขั้นสูงยังไม่เคยเปิด",
+      "price": 313,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "",
+      "active": true
     }
   ],
   "settings": {
@@ -40,6 +190,76 @@
   },
   "orders": [],
   "history": [
+    {
+      "id": "e138498c-8e8f-4e96-91de-bdd721793256",
+      "orderId": "",
+      "action": "เพิ่มสินค้า valor pass 405 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:27:39.898Z"
+    },
+    {
+      "id": "bcac8531-5966-4f12-8044-1395c932dd5d",
+      "orderId": "",
+      "action": "เพิ่มสินค้า echo 691 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:26:29.822Z"
+    },
+    {
+      "id": "a457bdd2-233d-4ffb-ba59-4e9e94465ce5",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 110 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:24:27.193Z"
+    },
+    {
+      "id": "f768efd0-23e5-49e0-b1a8-4c5e98fd7362",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 84 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:21:49.403Z"
+    },
+    {
+      "id": "0dd9495b-51e4-4de1-be87-cccdbbc67c8a",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 71 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:16:55.889Z"
+    },
+    {
+      "id": "d92b517d-6c4c-416c-979f-3d1df6dabcc8",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 60 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:16:29.292Z"
+    },
+    {
+      "id": "e96c396f-2c9c-4201-9157-aa52290f91ef",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 48 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:15:49.909Z"
+    },
+    {
+      "id": "f9b0c5e5-6742-497c-9b78-6934b8d9e76a",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 35 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:15:12.626Z"
+    },
+    {
+      "id": "905a1800-a247-4ff9-b38b-dd0422226dc8",
+      "orderId": "",
+      "action": "เพิ่มสินค้า echo 590 cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:10:54.595Z"
+    },
+    {
+      "id": "4241592e-33cd-4e1c-941a-df979abe5b5c",
+      "orderId": "",
+      "action": "เพิ่มสินค้า 24  cp",
+      "actor": "เจ้าของร้าน",
+      "createdAt": "2026-11-07T23:09:08.201Z"
+    },
     {
       "id": "08517e17-9c41-4595-9250-cf37b87cdfa5",
       "orderId": "",
