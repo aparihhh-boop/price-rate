@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff5f7">
+    <meta name="description" content="Meowmi เว็บค้นหาแพ็กและเช็กราคาเกม ROV, VALORANT, Roblox">
+    <title>Meowmi — ค้นหาแพ็กและดูราคาเกม</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/dashboard.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#shop" data-view="shop">meowmi<span>♡</span></a>
+      <nav aria-label="เมนูหลัก">
+        <button class="nav-link active" data-view="shop">ค้นหาแพ็ก</button>
+        <button class="nav-link owner-link" data-view="admin">จัดการร้าน</button>
+      </nav>
+      <a class="header-cta" href="#products">ดูราคา <span>↘</span></a>
+    </header>
+
+    <main>
+      <section class="view active" id="view-shop">
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow"><i></i> YOUR COZY GAME PRICE GUIDE</span>
+            <h1>Price rate<br>check check <em>♡</em></h1>
+            <p>ค้นหาแพ็ก ROV, VALORANT และ Roblox ได้ง่าย ๆ เช็กราคาและโปรโมชันก่อนทักสั่งซื้อกับร้าน</p>
+            <a class="button button-primary" href="#products">ค้นหาแพ็ก <span>⌕</span></a>
+            <div class="hero-assurance">♡ เว็บนี้สำหรับค้นหาและดูราคา · สั่งซื้อผ่าน LINE หรือช่องทางร้านเท่านั้น</div>
+          </div>
+          <div class="hero-art" aria-label="ภาพประกอบแมวสีชมพู">
+            <div class="hero-orbit"></div><span class="hero-sparkle sparkle-a">✦</span><span class="hero-sparkle sparkle-b">♡</span>
+            <div class="hero-cat"><div class="cat-ears"><i></i><i></i></div><div class="cat-eyes"><i></i><i></i></div><div class="cat-nose"></div><div class="cat-cheeks"><i></i><i></i></div><div class="cat-whiskers">〰　〰</div><span class="cat-bow">🎀</span></div>
+            <div class="art-caption">✿ made with love</div>
+          </div>
+          <div class="hero-scroll"><span>ค้นหาแพ็ก · เช็กราคา · ทักร้านเพื่อสั่งซื้อ</span><i></i><span>SCROLL TO EXPLORE ↓</span></div>
+        </section>
+
+        <section class="content-section" id="products">
+          <div class="section-heading">
+            <div><span class="eyebrow">FIND YOUR GAME PACKAGE</span><h2>ค้นหาแพ็กหรือ Skin <em>♡</em></h2><p>ค้นหาด้วยจำนวน ชื่อเกม แพ็ก หรือ Skin เช่น “500 คูปอง”, “1000 VP”, “การันตีสกิน”</p></div>
+          </div>
+          <div class="product-search">
+            <label class="search-input-wrap" for="product-search"><span>⌕</span><input id="product-search" type="search" placeholder="ค้นหาจำนวน แพ็ก หรือ Skin เช่น 500 คูปอง, 1000 VP, การันตีสกิน" autocomplete="off"><button type="button" id="clear-search" aria-label="ล้างคำค้นหา">×</button></label>
+            <div class="filter-row"><label for="game-filter">เกม</label><select id="game-filter"><option value="">ทุกเกม</option></select><label for="category-filter">ประเภท</label><select id="category-filter"><option value="">ทั้งหมด</option><option value="package">แพ็ก</option><option value="skin">Skin</option></select><span id="product-count"></span></div>
+          </div>
+          <div id="search-recommendation" class="search-recommendation" aria-live="polite"></div>
+          <div class="product-grid" id="product-grid"><div class="loading-card">กำลังโหลดแพ็กและราคา…</div></div>
+          <div class="shop-note">ราคาและโปรโมชันอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับร้านก่อนชำระเงิน</div>
+        </section>
+
+        <section class="contact-section">
+          <span class="eyebrow">READY TO ORDER?</span>
+          <h2>ช่องทางการติดต่อ <em>♡</em></h2>
+          <p>ทักร้านผ่านช่องทางด้านล่างเพื่อสั่งซื้อได้เลย</p>
+          <div id="contact-links" class="contact-links"><span class="contact-placeholder">https://line.me/R/ti/p/@446azoic?ts=10282030&oat_content=url</span></div>
+          <small>Meowmi ไม่มีแบบฟอร์มสั่งซื้อหรือชำระเงินบนเว็บไซต์นี้</small>
+        </section>
+      </section>
+
+      <section class="view admin-view" id="view-admin">
+        <div id="admin-login" class="admin-login">
+          <div class="login-card"><span class="eyebrow">OWNER ACCESS</span><h1>จัดการข้อมูลร้าน<br>ของคุณ <em>♡</em></h1><p id="admin-login-description">เพิ่มและแก้ไขเกม แพ็ก ราคา โปรโมชัน และรูปภาพ</p><form id="login-form"><label for="admin-password">รหัสผ่านเจ้าของร้าน</label><input type="password" id="admin-password" autocomplete="current-password" required><label for="confirm-password" id="confirm-password-label" class="hidden">ยืนยันรหัสผ่าน</label><input type="password" id="confirm-password" class="hidden" autocomplete="new-password"><button type="submit" class="button button-primary full-button"><span id="admin-login-action">เข้าสู่ระบบหลังบ้าน</span> <span>→</span></button><div id="login-error" class="inline-error" role="alert"></div></form><small id="admin-login-note">ลูกค้าเข้าเว็บดูและค้นหาราคาได้โดยไม่ต้องล็อกอิน</small></div>
+        </div>
+        <div id="admin-dashboard" class="admin-dashboard hidden">
+          <aside class="admin-sidebar">
+            <a class="brand" href="#shop" data-view="shop">meowmi<span>♡</span><small>SHOP ADMIN</small></a>
+            <button class="admin-tab active" data-tab="catalog">🎮 <span>เกมและแพ็ก</span></button>
+            <button class="admin-tab" data-tab="settings">💬 <span>ช่องทางสั่งซื้อ</span></button>
+            <button id="logout-button" class="logout-button">ออกจากระบบ</button>
+          </aside>
+          <div class="admin-main">
+            <div class="admin-topbar"><div><span class="eyebrow">MEOWMI SHOP ADMIN</span><h1 id="admin-page-title">เกม แพ็ก และ Skin <em>♡</em></h1><p>อัปเดตราคาและรายละเอียดให้ลูกค้าเข้ามาค้นหาได้</p></div><span class="owner-pill">🔐 OWNER ONLY</span></div>
+            <div id="admin-content"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><a class="brand" href="#shop" data-view="shop">meowmi<span>♡</span></a><p>ค้นหาแพ็ก ดูราคา แล้วทักร้านเพื่อสั่งซื้อ</p><small>© 2026 MEOWMI · MADE WITH LOVE ♡</small></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

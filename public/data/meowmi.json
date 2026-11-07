@@ -1,0 +1,58 @@
+{
+  "games": [
+    {
+      "id": "game-rov",
+      "name": "ROV",
+      "active": true
+    },
+    {
+      "id": "game-valorant",
+      "name": "VALORANT",
+      "active": true
+    },
+    {
+      "id": "game-roblox",
+      "name": "Roblox",
+      "active": true
+    }
+  ],
+  "skins": [
+    {
+      "id": "f22c604d-4978-4dfe-9654-88add267bde7",
+      "gameId": "game-rov",
+      "name": "11 cp",
+      "quantity": 11,
+      "unit": "cp",
+      "description": "",
+      "price": 10,
+      "cost": 0,
+      "promoPrice": null,
+      "promoLabel": "",
+      "imageUrl": "https://share.google/5Y2UBxOHCQhVf6Xdf",
+      "active": true,
+      "type": "package"
+    }
+  ],
+  "settings": {
+    "lineUrl": "https://line.me/R/ti/p/@446azoic?ts=10282030&oat_content=url",
+    "otherContactLabel": "X",
+    "otherContactUrl": "https://x.com/mardybumwz?s=20"
+  },
+  "orders": [],
+  "history": [
+    {
+      "id": "08517e17-9c41-4595-9250-cf37b87cdfa5",
+      "orderId": "",
+      "action": "เนเธเนเนเธเธชเธดเธเธเนเธฒ/เธฃเธฒเธเธฒ 11 cp",
+      "actor": "เน€เธเนเธฒเธเธญเธเธฃเนเธฒเธ",
+      "createdAt": "2026-11-07T20:26:00.510Z"
+    },
+    {
+      "id": "d8cc1640-91a8-4af5-b740-9bb5108f2b4e",
+      "orderId": "",
+      "action": "เน€เธเธดเนเธกเธชเธดเธเธเนเธฒ 11 cp",
+      "actor": "เน€เธเนเธฒเธเธญเธเธฃเนเธฒเธ",
+      "createdAt": "2026-11-07T20:24:14.694Z"
+    }
+  ]
+}
